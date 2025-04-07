@@ -2,8 +2,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: white;
+    background: rgb(214, 214, 214);
     color: black;
+    text-align: center;
   }
   
   .app-container {
