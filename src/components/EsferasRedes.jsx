@@ -87,13 +87,18 @@ export function Escena() {
       <directionalLight intensity={1.5} position={[2, 2, 2]} />
       <EsferaRedes 
         url="/spotify.glb" 
-        posicion={[-1.5, 0, 0]} 
+        posicion={[-3, 0, 0]} 
         enlace="https://open.spotify.com/intl-es/artist/3L38Pmccw8XRKFBUQlnjq8" 
       />
       <EsferaRedes 
         url="/youtube.glb" 
-        posicion={[1.5, 0, 0]} 
+        posicion={[0, 0, 0]} 
         enlace="https://www.youtube.com/@Kossmzz" 
+      />
+      <EsferaRedes
+        url="/instagram.glb"
+        posicion={[3, 0, 0]}
+        enlace="https://www.instagram.com/koss.mz"
       />
     </Canvas>
   );
