@@ -25,6 +25,7 @@ body {
   color: var(--color-texto);
 }
 
+
 /* ============= ESTRUCTURA PRINCIPAL ============= */
 .aplicacion {
   display: flex;
@@ -40,7 +41,7 @@ body {
   width: 100%;
   max-width: 800px;
   padding: 2rem;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,21 +74,19 @@ body {
 
 /* ============= CONTADOR REGRESIVO ============= */
 .contador-regresivo {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   margin: 2rem 0;
 }
 
-
 .tiempo-segmento {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 1.5rem;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 .tiempo-segmento:hover {
@@ -95,14 +94,16 @@ body {
 }
 
 .tiempo-numero {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-secundario);
   text-shadow: 0 0 15px var(--color-primario);
+  margin-bottom: 0.4rem;
 }
 
 .tiempo-etiqueta {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-texto);
 }
 
 /* ============= MEDIA QUERIES ============= */
@@ -134,7 +135,7 @@ body {
 @media (max-width: 480px) {
   .contenido-principal {
     padding: 1rem;
-    margin: 0 auto;
+    margin: 0;
   }
   
   .nombre-artista {

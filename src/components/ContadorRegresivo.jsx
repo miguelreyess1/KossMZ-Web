@@ -40,11 +40,11 @@ export default function ContadorRegresivo({ fechaLanzamiento }) {
       </div>
       <div className="tiempo-segmento">
         <span className="tiempo-numero">{tiempoRestante.minutos}</span>
-        <span className="tiempo-etiqueta">Min</span>
+        <span className="tiempo-etiqueta">Minutos</span>
       </div>
       <div className="tiempo-segmento">
         <span className="tiempo-numero">{tiempoRestante.segundos}</span>
-        <span className="tiempo-etiqueta">Seg</span>
+        <span className="tiempo-etiqueta">Segundos</span>
       </div>
     </div>
   );
