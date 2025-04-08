@@ -1,88 +1,95 @@
 /* global.css */
+
+/* Aseguramos que html y body ocupen el 100% del viewport y se deshabilite el scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 :root {
-    --color-primario: #ff9100;
-    --color-secundario: #fbff00;
-    --color-fondo: #121212;
-    --color-texto: #ffffff;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    max-height: 100vh;
-  }
-  
-  .aplicacion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 100vh;
-    padding: 2rem;
-  }
-  
-  .nombre-artista {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  }
-  
-  .subtitulo {
-    text-align: center;
-    color: #ffbb00;;
-  }
+  --color-primario: #ff9100;
+  --color-secundario: #fbff00;
+  --color-fondo: #121212;
+  --color-texto: #ffffff;
+}
 
-  .contenedor-esferas {
-    width: 100%;
-    max-width: 600px;
-    height: 300px;
-    margin: 2rem 0;
-  }
-  
-  .contador-regresivo {
-    display: flex;
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  
-  .tiempo-segmento {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tiempo-numero {
-    font-size: 3rem;
-    font-weight: bold;
-    color: var(--color-primario);
-  }
-  
-  .tiempo-etiqueta {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  @keyframes flotar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  .contenedor-esferas:hover {
-    animation: flotar 3s ease-in-out infinite;
-  }
-  
-  .tiempo-segmento {
-    transition: transform 0.3s ease;
-  }
-  
-  .tiempo-segmento:hover {
-    transform: scale(1.1);
-  }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  height: 100%;
+  /* El overflow ya está en html y body para evitar scroll */
+}
 
+.aplicacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.nombre-artista {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.subtitulo {
+  text-align: center;
+  color: #ffbb00;
+}
+
+.contenedor-esferas {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: 2rem 0;
+}
+
+.contador-regresivo {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.tiempo-segmento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tiempo-numero {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+.tiempo-etiqueta {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.contenedor-esferas:hover {
+  animation: flotar 3s ease-in-out infinite;
+}
+
+.tiempo-segmento {
+  transition: transform 0.3s ease;
+}
+
+.tiempo-segmento:hover {
+  transform: scale(1.1);
+}
