@@ -12,18 +12,17 @@
     font-family: 'Montserrat', sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
-    min-height: 100vh;
+    max-height: 100vh;
   }
   
   .aplicacion {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    max-height: 100vh;
     padding: 2rem;
   }
   
-  /* tema.css */
   .nombre-artista {
     font-size: 4rem;
     margin-bottom: 1rem;
@@ -34,6 +33,11 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
   
+  .subtitulo {
+    text-align: center;
+    color: #ffbb00;;
+  }
+
   .contenedor-esferas {
     width: 100%;
     max-width: 600px;
@@ -65,7 +69,6 @@
     letter-spacing: 1px;
   }
   
-  /* animaciones.css */
   @keyframes flotar {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
