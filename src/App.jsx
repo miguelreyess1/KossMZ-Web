@@ -1,27 +1,17 @@
-import React from 'react'
-import Header from './components/Header'
-import CuentaAtras from './components/CuentaAtras'
-import Bolas from './components/Bolas'
-import './index.css'
+import React from 'react';
+import Cabecera from './components/Cabecera';
+import ContadorRegresivo from './components/ContadorRegresivo';
+import { Escena } from './components/EsferasRedes';
+import './styles/global.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="app-container">
-      <Header />
-
-      <section className="countdown-section">
-        <CuentaAtras targetDate="2025-08-01T00:00:00" />
-      </section>
-
-      <section className="social-section">
-        <Bolas />
-      </section>
-
-      <footer className="footer">
-        <p>© 2025 KOSS MZ. Todos los derechos reservados.</p>
-      </footer>
+    <div className="aplicacion">
+      <Cabecera />
+      <main className="contenido-principal">
+        <ContadorRegresivo fechaLanzamiento="2025-08-01T00:00:00" />
+        <Escena />
+      </main>
     </div>
-  )
+  );
 }
-
-export default App
