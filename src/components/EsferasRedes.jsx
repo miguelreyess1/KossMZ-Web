@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 
-function EsferaRedes({ url, posicion }) {
+function EsferaRedes({ url, posicion, enlace }) {
   const { scene } = useGLTF(url);
   const groupRef = useRef();
 
@@ -44,6 +44,14 @@ function EsferaRedes({ url, posicion }) {
     isDragging.current = false;
   };
 
+  const handleClick = (e) => {
+    // Solo redirige si no hubo arrastre (para evitar redirección accidental)
+    if (!isDragging.current && enlace) {
+      window.open(enlace, '_blank'); // Abre en una nueva pestaña
+    }
+    e.stopPropagation();
+  };
+
   useFrame(() => {
     if (!groupRef.current) return;
     if (!isDragging.current) {
@@ -62,6 +70,7 @@ function EsferaRedes({ url, posicion }) {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerOut={handlePointerUp}
+        onClick={handleClick} // Agregar manejador de clic
       >
         <sphereGeometry args={[1.5, 32, 32]} />
         <meshBasicMaterial transparent opacity={0} />
@@ -76,8 +85,16 @@ export function Escena() {
     <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
       <ambientLight intensity={1.2} />
       <directionalLight intensity={1.5} position={[2, 2, 2]} />
-      <EsferaRedes url="/spotify.glb" posicion={[-1.5, 0, 0]} />
-      <EsferaRedes url="/youtube.glb" posicion={[1.5, 0, 0]} />
+      <EsferaRedes 
+        url="/spotify.glb" 
+        posicion={[-1.5, 0, 0]} 
+        enlace="https://open.spotify.com/intl-es/artist/3L38Pmccw8XRKFBUQlnjq8" 
+      />
+      <EsferaRedes 
+        url="/youtube.glb" 
+        posicion={[1.5, 0, 0]} 
+        enlace="https://www.youtube.com/@Kossmzz" 
+      />
     </Canvas>
   );
 }
