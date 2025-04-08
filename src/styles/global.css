@@ -1,13 +1,8 @@
-/* global.css */
-
-/* Aseguramos que html y body ocupen el 100% del viewport y se deshabilite el scroll */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+* {
+  text-align: center;
 }
 
+/* ============= VARIABLES GLOBALES ============= */
 :root {
   --color-primario: #ff9100;
   --color-secundario: #fbff00;
@@ -15,81 +10,166 @@ html, body {
   --color-texto: #ffffff;
 }
 
+/* ============= ESTILOS BASE ============= */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto);
-  height: 100%;
-  /* El overflow ya está en html y body para evitar scroll */
 }
 
+/* ============= ESTRUCTURA PRINCIPAL ============= */
 .aplicacion {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  padding: 2rem;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
+.contenido-principal {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ============= COMPONENTE CABECERA ============= */
 .nombre-artista {
   font-size: 4rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  margin: 0;
+  color: var(--color-primario);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .subtitulo {
-  text-align: center;
   color: #ffbb00;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
 
+/* ============= CONTENEDOR ESFERAS 3D ============= */
 .contenedor-esferas {
+  width: 90%;
+  height: 25vh;
+  min-height: 150px;
+  max-height: 300px;
+  position: relative;
+}
+
+/* ============= CONTADOR REGRESIVO ============= */
+.contador-regresivo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   width: 100%;
   max-width: 600px;
-  height: 300px;
   margin: 2rem 0;
 }
 
-.contador-regresivo {
-  display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
 
 .tiempo-segmento {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tiempo-numero {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--color-primario);
-}
-
-.tiempo-etiqueta {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-@keyframes flotar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.contenedor-esferas:hover {
-  animation: flotar 3s ease-in-out infinite;
-}
-
-.tiempo-segmento {
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tiempo-segmento:hover {
   transform: scale(1.1);
+}
+
+.tiempo-numero {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px var(--color-primario);
+}
+
+.tiempo-etiqueta {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ============= MEDIA QUERIES ============= */
+@media (max-width: 768px) {
+  .nombre-artista {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .contador-regresivo {
+      font-size: small;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      flex-direction: row;
+  }
+  
+  .tiempo-segmento {
+    min-width: 80px;
+    padding: 0.5rem;
+  }
+  
+  .tiempo-numero {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenido-principal {
+    padding: 1rem;
+    margin: 0 auto;
+  }
+  
+  .nombre-artista {
+    font-size: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .subtitulo {
+    font-size: 1.2rem;
+  }
+
+  .contador-regresivo {
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+  
+  .tiempo-segmento {
+    min-width: 60px;
+    padding: 0.3rem;
+  }
+  
+  .tiempo-numero {
+    font-size: 1.8rem;
+  }
+
+  .contenedor-esferas {
+    width: 90%;
+    height: 25vh;
+    min-height: 100px;
+    max-height: 150px;
+    position: relative;
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
+import { div } from 'three/tsl';
 
 function EsferaRedes({ url, posicion, enlace }) {
   const { scene } = useGLTF(url);
@@ -82,25 +83,27 @@ function EsferaRedes({ url, posicion, enlace }) {
 
 export function Escena() {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-      <ambientLight intensity={1.2} />
-      <directionalLight intensity={1.5} position={[2, 2, 2]} />
-      <EsferaRedes 
-        url="/spotify.glb" 
-        posicion={[-3, 0, 0]} 
-        enlace="https://open.spotify.com/intl-es/artist/3L38Pmccw8XRKFBUQlnjq8" 
-      />
-      <EsferaRedes 
-        url="/youtube.glb" 
-        posicion={[0, 0, 0]} 
-        enlace="https://www.youtube.com/@Kossmzz" 
-      />
-      <EsferaRedes
-        url="/instagram.glb"
-        posicion={[3, 0, 0]}
-        enlace="https://www.instagram.com/koss.mz"
-      />
-    </Canvas>
+    <div className='contenedor-esferas'>
+      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <ambientLight intensity={1.2} />
+        <directionalLight intensity={1.5} position={[2, 2, 2]} />
+        <EsferaRedes 
+          url="/spotify.glb" 
+          posicion={[-2.5, 0, 0]}
+          enlace="https://open.spotify.com/intl-es/artist/3L38Pmccw8XRKFBUQlnjq8" 
+        />
+        <EsferaRedes
+          url="/instagram.glb"
+          posicion={[2.5, 0, 0]}
+          enlace="https://www.instagram.com/koss.mz"
+        />
+        <EsferaRedes 
+          url="/youtube.glb" 
+          posicion={[0, 0, 0]} 
+          enlace="https://www.youtube.com/@Kossmzz" 
+        />
+      </Canvas>
+    </div>
   );
 }
 
