@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
+import { useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import { div } from 'three/tsl';
 
-function EsferaRedes({ url, posicion, enlace }) {
+function EsferaRedes({ url, posicion, enlace, rotacion }) {
   const { scene } = useGLTF(url);
   const groupRef = useRef();
 
@@ -53,16 +53,26 @@ function EsferaRedes({ url, posicion, enlace }) {
     e.stopPropagation();
   };
 
-  useFrame(() => {
-    if (!groupRef.current) return;
-    if (!isDragging.current) {
-      groupRef.current.rotation.y += velocityRef.current.vx;
-      groupRef.current.rotation.x += velocityRef.current.vy;
-      velocityRef.current.vx *= friction;
-      velocityRef.current.vy *= friction;
-      groupRef.current.rotation.y += idleRotation;
+  const initialRotation = useRef(rotacion || [0, 0, 0]);
+
+  useEffect(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.set(
+        rotacion?.[0] || 0,
+        rotacion?.[1] || 0,
+        rotacion?.[2] || 0
+      );
     }
+  }, [rotacion]);  
+
+  useFrame(() => {
+    if (!groupRef.current || isDragging.current) return;
+    groupRef.current.rotation.y += velocityRef.current.vx;
+    groupRef.current.rotation.x += velocityRef.current.vy;
+    velocityRef.current.vx *= friction;
+    velocityRef.current.vy *= friction;
   });
+   
 
   return (
     <group ref={groupRef} position={posicion}>
@@ -90,16 +100,19 @@ export function Escena() {
         <EsferaRedes 
           url="/spotify.glb" 
           posicion={[-2.5, 0, 0]}
+          rotacion={[0, 1, 0]} 
           enlace="https://open.spotify.com/intl-es/artist/3L38Pmccw8XRKFBUQlnjq8" 
         />
         <EsferaRedes
           url="/instagram.glb"
           posicion={[2.5, 0, 0]}
+          rotacion={[0, 6, 0]}
           enlace="https://www.instagram.com/koss.mz"
         />
         <EsferaRedes 
           url="/youtube.glb" 
           posicion={[0, 0, 0]} 
+          rotacion={[0, 25, 0]}
           enlace="https://www.youtube.com/@Kossmzz" 
         />
       </Canvas>
