@@ -1,7 +1,7 @@
 /* global.css */
 :root {
-    --color-primario: #ff00ff;
-    --color-secundario: #00ffff;
+    --color-primario: #ff9100;
+    --color-secundario: #fbff00;
     --color-fondo: #121212;
     --color-texto: #ffffff;
   }
@@ -82,3 +82,4 @@
   .tiempo-segmento:hover {
     transform: scale(1.1);
   }
+
