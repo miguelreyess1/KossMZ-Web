@@ -15,7 +15,7 @@ function Portada() {
   const minVelocity = 0.0001; // Velocidad mínima para detener
 
   // Ajustes iniciales del modelo
-  scene.scale.set(0.6, 0.6, 0.6);
+  scene.scale.set(0.4, 0.4, 0.4);
   scene.rotation.set(0, Math.PI, 0);
 
   // Manejadores de eventos
@@ -84,9 +84,9 @@ export default function Cabecera() {
       <div className="logo">
         <img src="./logo.png" alt="logo" />
       </div>
-      <div className="portada" style={{ width: "300px", height: "200px", margin: "0 auto" }}>
+      <div className="portada" style={{ width: "200px", height: "200px", margin: "0 auto" }}>
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <ambientLight intensity={6} />
+          <ambientLight intensity={5} />
           <pointLight position={[5, 5, 5]} intensity={1.5} />
           <Portada />
         </Canvas>
