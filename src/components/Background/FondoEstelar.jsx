@@ -60,7 +60,7 @@ export default function FondoEstelar() {
         width: '100vw',
         height: '100vh',
         zIndex: -1,
-        background: '#2b0a2f'
+        background: '#0d1b2a'
       }}
     >
       <Stars />

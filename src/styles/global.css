@@ -1,16 +1,8 @@
+/* ============= RESET & BASE ============= */
 * {
   text-align: center;
 }
 
-/* ============= VARIABLES GLOBALES ============= */
-:root {
-  --color-primario: #ff9100;
-  --color-secundario: #fbff00;
-  --color-fondo: #121212;
-  --color-texto: #ffffff;
-}
-
-/* ============= ESTILOS BASE ============= */
 html, body {
   width: 100%;
   height: 100%;
@@ -23,6 +15,14 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto);
+}
+
+/* ============= VARIABLES GLOBALES ============= */
+:root {
+  --color-primario: #ff9100;
+  --color-secundario: #fbff00;
+  --color-fondo: #121212;
+  --color-texto: #ffffff;
 }
 
 /* ============= ESTRUCTURA PRINCIPAL ============= */
@@ -52,11 +52,30 @@ body {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.subtitulo {
-  color: #ffbb00;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
+.titulo-cancion {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-secundario);
+  text-shadow: 0 0 15px var(--color-primario);
+  margin: 1rem 0;
+}
+
+/* ============= COMPONENTE LOGO ============= */
+.logo {
+  align-items: center;
+  text-align: center;
+  height: 150px;
+  width: 250px;
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* ============= CONTENEDOR ESFERAS 3D ============= */
@@ -74,7 +93,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin: 2rem 0;
 }
 
 .tiempo-segmento {
@@ -94,31 +112,12 @@ body {
   font-weight: bold;
   color: var(--color-secundario);
   text-shadow: 0 0 15px var(--color-primario);
-  margin-bottom: 0.4rem;
 }
 
 .tiempo-etiqueta {
   font-size: 1rem;
   color: var(--color-texto);
 }
-
-.logo {
-  align-items: center;
-  text-align: center;
-  height: 150px;
-  width: 250px;
-  border-radius: 200px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
 
 /* ============= MEDIA QUERIES ============= */
 @media (max-width: 768px) {
@@ -128,19 +127,19 @@ body {
   }
 
   .contador-regresivo {
-      font-size: small;
-      display: flex;
-      justify-content: center;
-      flex-wrap: nowrap;
-      gap: 0.5rem;
-      flex-direction: row;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    flex-direction: row;
   }
-  
+
   .tiempo-segmento {
     min-width: 80px;
     padding: 0.5rem;
   }
-  
+
   .tiempo-numero {
     font-size: 2rem;
   }
@@ -148,17 +147,12 @@ body {
 
 @media (max-width: 480px) {
   .contenido-principal {
-    padding: 1rem;
     margin: 0;
   }
-  
-  .nombre-artista {
+
+  .titulo-cancion {
     font-size: 2rem;
-    padding: 0 0.5rem;
-  }
-  
-  .subtitulo {
-    font-size: 1.2rem;
+    margin: 1rem 0;
   }
 
   .contador-regresivo {
@@ -170,12 +164,12 @@ body {
     gap: 1rem;
     flex-wrap: nowrap;
   }
-  
+
   .tiempo-segmento {
     min-width: 60px;
     padding: 0.3rem;
   }
-  
+
   .tiempo-numero {
     font-size: 1.8rem;
   }
@@ -189,8 +183,8 @@ body {
   }
 
   .logo {
-    height: 120px;  /* Reduce la altura */
-    width: 170px;   /* Reduce el ancho */
-    border-radius: 150px; /* Ajusta el border-radius si es necesario */
+    height: 120px;
+    width: 170px;
+    border-radius: 150px;
   }
 }

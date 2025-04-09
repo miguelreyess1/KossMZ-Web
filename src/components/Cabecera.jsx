@@ -84,13 +84,12 @@ export default function Cabecera() {
       <div className="logo">
         <img src="./logo.png" alt="logo" />
       </div>
+      <h2 className="titulo-cancion">PENE 9</h2>
+
       <div className="portada" style={{ width: "200px", height: "200px", margin: "0 auto" }}>
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <ambientLight intensity={5} />
-          <pointLight position={[5, 5, 5]} intensity={1.5} />
-          <Portada 
-            rotacion={[0, 25, 0]}
-          />
+          <ambientLight intensity={4} />
+          <Portada />
         </Canvas>
       </div>
     </header>
