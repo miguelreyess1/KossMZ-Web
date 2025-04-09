@@ -16,7 +16,7 @@ function Portada() {
 
   // Ajustes iniciales del modelo
   scene.scale.set(0.4, 0.4, 0.4);
-  scene.rotation.set(0, Math.PI, 0);
+  scene.rotation.set(0, 4.7, 0);
 
   // Manejadores de eventos
   const handlePointerDown = (e) => {
@@ -88,7 +88,9 @@ export default function Cabecera() {
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
           <ambientLight intensity={5} />
           <pointLight position={[5, 5, 5]} intensity={1.5} />
-          <Portada />
+          <Portada 
+            rotacion={[0, 25, 0]}
+          />
         </Canvas>
       </div>
     </header>
