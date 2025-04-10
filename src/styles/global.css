@@ -55,8 +55,8 @@ body {
 .titulo-cancion {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--color-secundario);
-  text-shadow: 0 0 15px var(--color-primario);
+  color: var(--color-primario);
+  text-shadow: 0 0 25px var(--color-primario);
   margin: 1rem 0;
 }
 

@@ -84,7 +84,7 @@ export default function Cabecera() {
       <div className="logo">
         <img src="./logo.png" alt="logo" />
       </div>
-      <h2 className="titulo-cancion">PENE 9</h2>
+      <h2 className="titulo-cancion">PISO 9</h2>
 
       <div className="portada" style={{ width: "200px", height: "200px", margin: "0 auto" }}>
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
