@@ -1,37 +1,47 @@
-⏳ KossMZ Countdown
+# ⏳ KossMZ Countdown
 
-Project Status
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)  
+![Project Status](https://img.shields.io/badge/Status-En%20Desarrollo-yellowgreen)
 
-Cuenta Regresiva para el Lanzamiento de la Nueva Canción de KossMZ
+**Cuenta Regresiva para el Lanzamiento de la Nueva Canción de KossMZ**  
 ¡Genera expectativa y emoción para el gran estreno!
-🌟 Características Principales
-🎯 Función	📚 Descripción
-⏰ Cuenta Regresiva en Tiempo Real	Muestra días, horas, minutos y segundos que faltan para el lanzamiento.
-📱 Diseño Responsivo	Adaptable a dispositivos de escritorio, tablets y móviles.
-🎨 Fácil Personalización	Modifica estilos, mensajes y la fecha del lanzamiento directamente en el código.
-🔗 Integración Opcional en Redes Sociales	Comparte el anuncio en diversas plataformas para aumentar la expectativa de los fans.
-📋 Requisitos Técnicos
 
-    Navegador web (Chrome, Firefox, Safari, etc.)
+---
 
-    Editor de código (Visual Studio Code, Sublime Text, etc.) (opcional para modificar el código)
+## 🌟 Características Principales
 
-🚀 Instalación Rápida
+| **🎯 Función**                               | **📚 Descripción**                                                                                         |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **⏰ Cuenta Regresiva en Tiempo Real**        | Muestra días, horas, minutos y segundos que faltan para el lanzamiento.                                   |
+| **📱 Diseño Responsivo**                      | Adaptable a dispositivos de escritorio, tablets y móviles.                                              |
+| **🎨 Fácil Personalización**                  | Modifica estilos, mensajes y la fecha del lanzamiento directamente en el código.                         |
+| **🔗 Integración Opcional en Redes Sociales** | Comparte el anuncio en diversas plataformas para aumentar la expectativa de los fans.                      |
 
-    Clonar el Repositorio
+---
 
-git clone https://github.com/tu-usuario/KossMZ-main.git
-cd KossMZ-main
+## 📋 Requisitos Técnicos
 
-Abrir el Proyecto
+- Navegador web (Chrome, Firefox, Safari, etc.)
+- Editor de código (Visual Studio Code, Sublime Text, etc.) *(opcional para modificar el código)*
 
-    Abre el archivo index.html directamente en tu navegador favorito.
+---
 
-    Opcional: Utiliza un servidor local (por ejemplo, Live Server en Visual Studio Code) para ver los cambios en tiempo real.
+## 🚀 Instalación Rápida
 
-Configurar la Fecha de Lanzamiento
+1. **Clonar el Repositorio**
+   ```bash
+   git clone https://github.com/tu-usuario/KossMZ-main.git
+   cd KossMZ-main
 
-    Dentro del archivo JavaScript (por ejemplo, main.js), actualiza la variable de fecha límite con la fecha y hora exacta del lanzamiento:
+    Abrir el Proyecto
+
+        Abre el archivo index.html directamente en tu navegador favorito.
+
+        Opcional: Utiliza un servidor local (por ejemplo, Live Server en Visual Studio Code) para ver los cambios en tiempo real.
+
+    Configurar la Fecha de Lanzamiento
+
+        Dentro del archivo JavaScript (por ejemplo, main.js), actualiza la variable de fecha límite con la fecha y hora exacta del lanzamiento:
 
         // Ejemplo:
         const lanzamiento = new Date("YYYY-MM-DDTHH:MM:SS");
