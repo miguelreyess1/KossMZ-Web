@@ -67,10 +67,14 @@ KossMZ/
 ├── README.md        
 └── LICENSE         
 
+---
+
 ##📜 Licencia
 
 Este proyecto se distribuye bajo la Licencia MIT.
 Consulta el archivo LICENSE para más detalles.
+
+---
 
 ##📞 Contacto
 
