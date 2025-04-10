@@ -69,14 +69,14 @@ KossMZ/
 
 ---
 
-##📜 Licencia
+## 📜 Licencia
 
 Este proyecto se distribuye bajo la Licencia MIT.
 Consulta el archivo LICENSE para más detalles.
 
 ---
 
-##📞 Contacto
+## 📞 Contacto
 
 ¿Tienes dudas o sugerencias?
 ✉️ miguel.reyesgomez1@gmail.com
