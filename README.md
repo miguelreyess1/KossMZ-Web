@@ -52,11 +52,20 @@
 
 ## 🗂️ Estructura del Proyecto
 
-KossMZ-Countdown/
-├── index.html         # Página principal
-├── main.js            # Lógica de la cuenta regresiva
-├── styles.css         # Estilos visuales
-└── assets/            # Recursos adicionales (imágenes, íconos, etc.)
+KossMZ/              
+├── public/          
+├── src/             
+│   └── components/ 
+│       ├── Cabecera.jsx       
+│       ├── EsferasRedes.jsx       
+│       └── ContadorRegresivo.jsx  
+│   ├── styles/
+│   │   └── global.css
+│   └── Background/
+│       └── FondoEstelar.jsx    
+├── index.html              
+├── README.md        
+└── LICENSE         
 
 ##📜 Licencia
 
