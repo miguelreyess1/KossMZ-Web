@@ -33,22 +33,24 @@
    git clone https://github.com/tu-usuario/KossMZ-main.git
    cd KossMZ-main
 
-    Abrir el Proyecto
+2. Abrir el Proyecto
 
-        Abre el archivo index.html directamente en tu navegador favorito.
+   - Abre el archivo index.html directamente en tu navegador favorito.
 
-        Opcional: Utiliza un servidor local (por ejemplo, Live Server en Visual Studio Code) para ver los cambios en tiempo real.
+   - Opcional: Utiliza un servidor local (por ejemplo, Live Server en Visual Studio Code) para ver los cambios en tiempo real.
 
-    Configurar la Fecha de Lanzamiento
+3. Configurar la Fecha de Lanzamiento
 
-        Dentro del archivo JavaScript (por ejemplo, main.js), actualiza la variable de fecha límite con la fecha y hora exacta del lanzamiento:
-
+   - Dentro del archivo JavaScript (por ejemplo, main.js), actualiza la variable de fecha límite con la fecha y hora exacta del lanzamiento:
+      ```bash
         // Ejemplo:
         const lanzamiento = new Date("YYYY-MM-DDTHH:MM:SS");
 
-        Guarda el archivo y refresca el navegador para actualizar la cuenta regresiva.
+   - Guarda el archivo y refresca el navegador para actualizar la cuenta regresiva.
 
-🗂️ Estructura del Proyecto
+---
+
+## 🗂️ Estructura del Proyecto
 
 KossMZ-Countdown/
 ├── index.html         # Página principal
@@ -56,11 +58,12 @@ KossMZ-Countdown/
 ├── styles.css         # Estilos visuales
 └── assets/            # Recursos adicionales (imágenes, íconos, etc.)
 
-📜 Licencia
+##📜 Licencia
 
 Este proyecto se distribuye bajo la Licencia MIT.
 Consulta el archivo LICENSE para más detalles.
-📞 Contacto
+
+##📞 Contacto
 
 ¿Tienes dudas o sugerencias?
 ✉️ miguel.reyesgomez1@gmail.com
