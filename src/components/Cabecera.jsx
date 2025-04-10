@@ -9,20 +9,17 @@ function Portada() {
   const prevPointer = useRef({ x: 0, y: 0 });
   const velocityRef = useRef({ vx: 0, vy: 0 });
 
-  // Parámetros ajustados para mejor inercia
-  const rotationFactor = 0.005; // Aumentado para más sensibilidad
-  const friction = 0.96; // Reducido para más deslizamiento
-  const minVelocity = 0.0001; // Velocidad mínima para detener
+  const rotationFactor = 0.005;
+  const friction = 0.96;
+  const minVelocity = 0.0001;
 
-  // Ajustes iniciales del modelo
   scene.scale.set(0.4, 0.4, 0.4);
   scene.rotation.set(0, 4.7, 0);
 
-  // Manejadores de eventos
   const handlePointerDown = (e) => {
     isDragging.current = true;
     prevPointer.current = { x: e.clientX, y: e.clientY };
-    velocityRef.current = { vx: 0, vy: 0 }; // Resetear velocidad al comenzar nuevo arrastre
+    velocityRef.current = { vx: 0, vy: 0 }; 
     e.stopPropagation();
   };
 
@@ -33,7 +30,6 @@ function Portada() {
     const deltaY = e.clientY - prevPointer.current.y;
     prevPointer.current = { x: e.clientX, y: e.clientY };
 
-    // Actualizar velocidad con suavizado
     velocityRef.current.vx = deltaX * rotationFactor * 0.5 + velocityRef.current.vx * 0.5;
     velocityRef.current.vy = deltaY * rotationFactor * 0.5 + velocityRef.current.vy * 0.5;
 
@@ -45,19 +41,13 @@ function Portada() {
     isDragging.current = false;
   };
 
-  // Animación mejorada
   useFrame(() => {
     if (!groupRef.current || isDragging.current) return;
-    
-    // Aplicar velocidad
     groupRef.current.rotation.y += velocityRef.current.vx;
     groupRef.current.rotation.x += velocityRef.current.vy;
-    
-    // Aplicar fricción con detección de parada
     velocityRef.current.vx *= friction;
     velocityRef.current.vy *= friction;
     
-    // Detener completamente cuando la velocidad sea muy baja
     if (Math.abs(velocityRef.current.vx) < minVelocity) velocityRef.current.vx = 0;
     if (Math.abs(velocityRef.current.vy) < minVelocity) velocityRef.current.vy = 0;
   });
@@ -80,12 +70,11 @@ function Portada() {
 
 export default function Cabecera() {
   return (
-    <header className="cabecera">
+    <header>
+      <h2 className="titulo-cancion">PISO 9</h2>
       <div className="logo">
         <img src="./logo.png" alt="logo" />
       </div>
-      <h2 className="titulo-cancion">PISO 9</h2>
-
       <div className="portada" style={{ width: "200px", height: "200px", margin: "0 auto" }}>
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
           <ambientLight intensity={4} />
