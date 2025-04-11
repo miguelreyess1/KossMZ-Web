@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 
@@ -13,8 +13,17 @@ function Portada() {
   const friction = 0.96;
   const minVelocity = 0.0001;
 
+  // Configuración inicial del modelo
   scene.scale.set(0.4, 0.4, 0.4);
   scene.rotation.set(0, 4.7, 0);
+
+  // Guardamos el valor inicial de Y para el efecto de rebote
+  const initialY = useRef(0);
+  useEffect(() => {
+    if (groupRef.current) {
+      initialY.current = groupRef.current.position.y;
+    }
+  }, []);
 
   const handlePointerDown = (e) => {
     isDragging.current = true;
@@ -41,15 +50,25 @@ function Portada() {
     isDragging.current = false;
   };
 
-  useFrame(() => {
-    if (!groupRef.current || isDragging.current) return;
-    groupRef.current.rotation.y += velocityRef.current.vx;
-    groupRef.current.rotation.x += velocityRef.current.vy;
-    velocityRef.current.vx *= friction;
-    velocityRef.current.vy *= friction;
+  useFrame((state) => {
+    if (!groupRef.current) return;
 
-    if (Math.abs(velocityRef.current.vx) < minVelocity) velocityRef.current.vx = 0;
-    if (Math.abs(velocityRef.current.vy) < minVelocity) velocityRef.current.vy = 0;
+    // Rotación según la interacción de arrastre
+    if (!isDragging.current) {
+      groupRef.current.rotation.y += velocityRef.current.vx;
+      groupRef.current.rotation.x += velocityRef.current.vy;
+      velocityRef.current.vx *= friction;
+      velocityRef.current.vy *= friction;
+
+      if (Math.abs(velocityRef.current.vx) < minVelocity) velocityRef.current.vx = 0;
+      if (Math.abs(velocityRef.current.vy) < minVelocity) velocityRef.current.vy = 0;
+    }
+    
+    // Movimiento vertical tipo rebote, más lento que el de las esferas
+    const time = state.clock.getElapsedTime();
+    const amplitude = 0.2;  // Controla cuánto sube y baja
+    const frequency = 0.5;  // Controla la velocidad del rebote
+    groupRef.current.position.y = initialY.current + Math.sin(time * frequency) * amplitude;
   });
 
   return (
