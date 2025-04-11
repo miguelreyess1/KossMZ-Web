@@ -78,7 +78,7 @@ function EsferaRedes({ url, posicion, enlace, rotacion }) {
     // Efecto de rebote vertical (bouncing)
     const time = state.clock.getElapsedTime();
     const amplitude = 0.5; // Amplitud del rebote (ajusta según prefieras)
-    const frequency = 2;   // Frecuencia del rebote (cuanto mayor, más rápido)
+    const frequency = 1;   // Frecuencia del rebote (cuanto mayor, más rápido)
     groupRef.current.position.y = initialY.current + Math.sin(time * frequency) * amplitude;
   });
 
