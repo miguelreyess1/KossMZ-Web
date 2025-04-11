@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import { useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 
@@ -7,13 +6,15 @@ function EsferaRedes({ url, posicion, enlace, rotacion }) {
   const { scene } = useGLTF(url);
   const groupRef = useRef();
 
+  // Guarda la posición inicial en Y para el efecto de rebote.
+  const initialY = useRef(posicion ? posicion[1] : 0);
+
   const isDragging = useRef(false);
   const prevPointer = useRef({ x: 0, y: 0 });
   const velocityRef = useRef({ vx: 0, vy: 0 });
 
   const rotationFactor = 0.01;
   const friction = 0.95;
-  const idleRotation = 0.001;
 
   const handlePointerDown = (e) => {
     isDragging.current = true;
@@ -53,8 +54,6 @@ function EsferaRedes({ url, posicion, enlace, rotacion }) {
     e.stopPropagation();
   };
 
-  const initialRotation = useRef(rotacion || [0, 0, 0]);
-
   useEffect(() => {
     if (groupRef.current) {
       groupRef.current.rotation.set(
@@ -63,16 +62,25 @@ function EsferaRedes({ url, posicion, enlace, rotacion }) {
         rotacion?.[2] || 0
       );
     }
-  }, [rotacion]);  
+  }, [rotacion]);
 
-  useFrame(() => {
-    if (!groupRef.current || isDragging.current) return;
-    groupRef.current.rotation.y += velocityRef.current.vx;
-    groupRef.current.rotation.x += velocityRef.current.vy;
-    velocityRef.current.vx *= friction;
-    velocityRef.current.vy *= friction;
+  useFrame((state) => {
+    if (!groupRef.current) return;
+
+    // Actualiza la rotación solo si no se está arrastrando
+    if (!isDragging.current) {
+      groupRef.current.rotation.y += velocityRef.current.vx;
+      groupRef.current.rotation.x += velocityRef.current.vy;
+      velocityRef.current.vx *= friction;
+      velocityRef.current.vy *= friction;
+    }
+
+    // Efecto de rebote vertical (bouncing)
+    const time = state.clock.getElapsedTime();
+    const amplitude = 0.5; // Amplitud del rebote (ajusta según prefieras)
+    const frequency = 2;   // Frecuencia del rebote (cuanto mayor, más rápido)
+    groupRef.current.position.y = initialY.current + Math.sin(time * frequency) * amplitude;
   });
-   
 
   return (
     <group ref={groupRef} position={posicion}>
@@ -81,7 +89,7 @@ function EsferaRedes({ url, posicion, enlace, rotacion }) {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerOut={handlePointerUp}
-        onClick={handleClick} // Agregar manejador de clic
+        onClick={handleClick}
       >
         <sphereGeometry args={[1.5, 32, 32]} />
         <meshBasicMaterial transparent opacity={0} />
@@ -113,7 +121,7 @@ export function Escena() {
           url="/youtube.glb" 
           posicion={[0, 0, 0]} 
           rotacion={[0, 25, 0]}
-          enlace="https://www.youtube.com/@Kossmzz" 
+          enlace="https://www.youtube.com/@Kossmzz"
         />
       </Canvas>
     </div>
