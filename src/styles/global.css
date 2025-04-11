@@ -50,8 +50,8 @@ body {
   font-weight: bold;
   color: var(--color-primario);
   margin: 1rem 0 0.5rem 0;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 0.3rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.2rem;
 }
 
 .nombre-artista {
