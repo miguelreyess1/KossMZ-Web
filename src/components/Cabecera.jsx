@@ -19,13 +19,13 @@ function Portada() {
   const handlePointerDown = (e) => {
     isDragging.current = true;
     prevPointer.current = { x: e.clientX, y: e.clientY };
-    velocityRef.current = { vx: 0, vy: 0 }; 
+    velocityRef.current = { vx: 0, vy: 0 };
     e.stopPropagation();
   };
 
   const handlePointerMove = (e) => {
     if (!isDragging.current || !groupRef.current) return;
-    
+
     const deltaX = e.clientX - prevPointer.current.x;
     const deltaY = e.clientY - prevPointer.current.y;
     prevPointer.current = { x: e.clientX, y: e.clientY };
@@ -47,7 +47,7 @@ function Portada() {
     groupRef.current.rotation.x += velocityRef.current.vy;
     velocityRef.current.vx *= friction;
     velocityRef.current.vy *= friction;
-    
+
     if (Math.abs(velocityRef.current.vx) < minVelocity) velocityRef.current.vx = 0;
     if (Math.abs(velocityRef.current.vy) < minVelocity) velocityRef.current.vy = 0;
   });
@@ -72,9 +72,7 @@ export default function Cabecera() {
   return (
     <header>
       <h2 className="titulo-cancion">PISO 9</h2>
-      <div className="logo">
-        <img src="./logo.png" alt="logo" />
-      </div>
+      <h3 className="nombre-artista">KOSS MZ</h3>
       <div className="portada" style={{ width: "200px", height: "200px", margin: "0 auto" }}>
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
           <ambientLight intensity={4} />
