@@ -51,6 +51,7 @@ body {
   color: var(--color-primario);
   margin: 1rem 0 0.5rem 0;
   font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.3rem;
 }
 
 .nombre-artista {
